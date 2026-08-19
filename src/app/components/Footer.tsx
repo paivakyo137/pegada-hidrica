@@ -27,6 +27,17 @@ export function Footer() {
       <p className="pb-8 text-center text-xs text-[var(--muted)]">
         © {new Date().getFullYear()} {SITE_NAME}. Projeto educativo.
       </p>
+      <section className="w-full bg-gradient-to-r from-blue-50 to-green-50 py-8 mt-12 border-t border-blue-200">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h3 className="text-xl font-bold text-blue-900 mb-2">Desenvolvido por</h3>
+          <p className="text-gray-700 text-lg">
+            Arthur B. Paiva; Lorenzo B. Mendes; Mariany V. Agostini; Isadora Cristofoli; Guilherme B. Syka
+          </p>
+          <p className="text-sm text-gray-500 mt-2">
+            Trabalho de Itinerário Formativo de Aprofundamento (IFA) - C. E. Wilson Joffre
+          </p>
+        </div>
+      </section>
     </footer>
   );
 }
