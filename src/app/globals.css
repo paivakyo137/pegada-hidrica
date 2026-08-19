@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f3f8fc;
+  --foreground: #2c3e50;
+  --card: rgba(255, 255, 255, 0.78);
+  --muted: #5b6b7c;
+}
+
+.dark {
+  --background: #07131f;
+  --foreground: #e8f1f8;
+  --card: rgba(12, 28, 44, 0.72);
+  --muted: #9bb0c3;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-water: #1e90ff;
+  --color-water-light: #00bfff;
+  --color-leaf: #2ecc71;
+  --color-ink: #2c3e50;
+  --color-mist: #f8f9fa;
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-fraunces);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+.bg-grid {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(30, 144, 255, 0.18), transparent),
+    linear-gradient(to bottom, transparent, var(--background));
+}
+
+.glass {
+  background: var(--card);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(30, 144, 255, 0.12);
+}
+
+.dark .glass {
+  border-color: rgba(0, 191, 255, 0.16);
+}
+
+.gradient-text {
+  background: linear-gradient(120deg, #1e90ff 10%, #00bfff 45%, #2ecc71 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-gradient {
+  background-image: linear-gradient(90deg, #1e90ff, #2ecc71);
+  color: white;
+}
+
+@keyframes fall {
+  0% {
+    transform: translate3d(0, -12vh, 0) scale(0.7);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translate3d(12px, 110vh, 0) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.4);
+    opacity: 0.45;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.drop {
+  animation: fall linear infinite;
+}
+
+.ripple {
+  animation: ripple 3.2s ease-out infinite;
+}
+
+.floaty {
+  animation: floaty 5s ease-in-out infinite;
+}
+
+@media print {
+  nav,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: #111;
+  }
+}
